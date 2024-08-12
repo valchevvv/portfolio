@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { FiDownload } from "react-icons/fi";
 
@@ -7,6 +9,15 @@ import Photo from "@/components/Photo";
 import Stats from "@/components/Stats";
 
 const Home = () => {
+  const handleDownloadCV = () => {
+    const link = document.createElement('a');
+    link.href = '/CV.pdf'; // Path to your PDF file in the public directory
+    link.download = 'CV.pdf'; // The name of the file to be downloaded
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="h-full">
       <div className="container mx-auto h-full">
@@ -14,16 +25,17 @@ const Home = () => {
           <div className="text-center xl:text-left order-2 xl:order-none">
             <span>Software Developer</span>
             <h1 className="h1 mb-6">
-              Hello I'm <br/><span className="text-accent">Daniel Valchev</span>
+              Hello I'm <br /><span className="text-accent">Daniel Valchev</span>
             </h1>
             <p className="max-w-[500px] mb-9 text-white/80">
               I'm a software developer based in Kazanlak, Bulgaria. I specialize in building high-quality websites and applications.
             </p>
             <div className="flex flex-col xl:flex-row items-center gap-8">
-              <Button 
+              <Button
                 variant="outline"
                 size="lg"
                 className="uppercase flex items-center gap-2"
+                onClick={handleDownloadCV}
               >
                 <span>Download CV</span>
                 <FiDownload className="text-xl" />
