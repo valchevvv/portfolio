@@ -65,6 +65,29 @@ const projects = [
     image: "/assets/Weather_App.png",
     live: "https://weather-app.valchevvv.com/",
     github: "https://github.com/valchevvv/Weather-App/"
+  },
+  {
+    num: "03",
+    category: "Web Development",
+    title: "FundSphere",
+    description: "FundSphere is a decentralized application that allows users to invest in funds.",
+    stack: [
+      {
+        name: "React"
+      },
+      {
+        name: "Typescript"
+      },
+      {
+        name: "Wagmi"
+      },
+      {
+        name: "Ethers.JS"
+      }
+    ],
+    image: "/assets/Fund_Sphere.png",
+    live: "https://fund-sphere.valchevvv.com/",
+    github: "https://github.com/valchevvv/FundSphere/"
   }
 ]
 
