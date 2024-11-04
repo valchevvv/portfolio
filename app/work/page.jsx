@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion"
-import React, { useState } from "react"
+import { motion } from "framer-motion";
+import React, { useState } from "react";
 
-import { Swiper, SwiperSlide } from "swiper/react"
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
@@ -13,10 +13,10 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "@/components/ui/tooltip"
+} from "@/components/ui/tooltip";
 
-import Link from "next/link"
-import Image from "next/image"
+import Link from "next/link";
+import Image from "next/image";
 import WorkSliderBtns from "@/components/WorkSliderBtns";
 
 const projects = [
@@ -24,72 +24,75 @@ const projects = [
     num: "01",
     category: "Web Development",
     title: "Social Media App",
-    description: "A social media app where you can create an account, post, like, comment, message and follow other users.",
+    description:
+      "A social media app where you can create an account, post, like, comment, message and follow other users.",
     stack: [
       {
-        name: "React"
+        name: "React",
       },
       {
-        name: "Typescript"
+        name: "Typescript",
       },
       {
-        name: "Tailwind"
+        name: "Tailwind",
       },
       {
-        name: "Node JS"
+        name: "Node JS",
       },
       {
-        name: "Express"
+        name: "Express",
       },
       {
-        name: "MongoDB"
-      }
+        name: "MongoDB",
+      },
     ],
-    image: "/assets/Social-Media-App.png",
+    image: "/assets/Social-Media-App.webp",
     live: "https://social-media.valchevvv.com/",
-    github: "https://github.com/valchevvv/Social-Media-App/"
+    github: "https://github.com/valchevvv/Social-Media-App/",
   },
   {
     num: "02",
     category: "Web Development",
     title: "Weather App",
-    description: "Simple weather app that shows the current/searched weather in your location.",
+    description:
+      "Simple weather app that shows the current/searched weather in your location.",
     stack: [
       {
-        name: "React"
+        name: "React",
       },
       {
-        name: "Typescript"
-      }
+        name: "Typescript",
+      },
     ],
-    image: "/assets/Weather_App.png",
+    image: "/assets/Weather_App.webp",
     live: "https://weather-app.valchevvv.com/",
-    github: "https://github.com/valchevvv/Weather-App/"
+    github: "https://github.com/valchevvv/Weather-App/",
   },
   {
     num: "03",
     category: "Web Development",
     title: "FundSphere",
-    description: "FundSphere is a decentralized application that allows users to invest in funds.",
+    description:
+      "FundSphere is a decentralized application that allows users to invest in funds.",
     stack: [
       {
-        name: "React"
+        name: "React",
       },
       {
-        name: "Typescript"
+        name: "Typescript",
       },
       {
-        name: "Wagmi"
+        name: "Wagmi",
       },
       {
-        name: "Ethers.JS"
-      }
+        name: "Ethers.JS",
+      },
     ],
-    image: "/assets/Fund_Sphere.png",
+    image: "/assets/Fund_Sphere.webp",
     live: "https://fund-sphere.valchevvv.com/",
-    github: "https://github.com/valchevvv/FundSphere/"
-  }
-]
+    github: "https://github.com/valchevvv/FundSphere/",
+  },
+];
 
 const Work = () => {
   const [project, setProject] = useState(projects[0]);
@@ -97,18 +100,18 @@ const Work = () => {
   const handleSlideChange = (swiper) => {
     const currentIndex = swiper.activeIndex;
     setProject(projects[currentIndex]);
-  }
+  };
 
   return (
     <motion.section
       initial={{ opacity: 0 }}
-      animate={{ 
+      animate={{
         opacity: 1,
         transition: {
           delay: 2.4,
           duration: 0.4,
-          ease: "easeIn"
-        }
+          ease: "easeIn",
+        },
       }}
       className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
     >
@@ -130,7 +133,7 @@ const Work = () => {
                       {item.name}
                       {index !== project.stack.length - 1 && ","}
                     </li>
-                  )
+                  );
                 })}
               </ul>
               <div className="border border-white/20"></div>
@@ -163,28 +166,28 @@ const Work = () => {
             </div>
           </div>
           <div className="w-full xl:w-[50%]">
-            <Swiper 
-              spaceBetween={30} 
-              slidesPerView={1} 
+            <Swiper
+              spaceBetween={30}
+              slidesPerView={1}
               className="xl:h-[520px] mb-12"
               onSlideChange={handleSlideChange}
             >
               {projects.map((project, index) => {
-                return <SwiperSlide key={index} className="w-full">
-                  <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
-                    <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10">
-
+                return (
+                  <SwiperSlide key={index} className="w-full">
+                    <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
+                      <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={project.image}
+                          fill
+                          className="object-contain"
+                          alt={project.title}
+                        />
+                      </div>
                     </div>
-                    <div className="relative w-full h-full">
-                      <Image 
-                        src={project.image}
-                        fill
-                        className="object-contain"
-                        alt={project.title}
-                      />
-                    </div>
-                  </div>
-                </SwiperSlide>
+                  </SwiperSlide>
+                );
               })}
               <WorkSliderBtns
                 containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
@@ -195,7 +198,7 @@ const Work = () => {
         </div>
       </div>
     </motion.section>
-  )
-}
+  );
+};
 
-export default Work
+export default Work;
